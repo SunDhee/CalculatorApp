@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Welcome Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="js/jquery.mobile-1.4.5.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.mobile-1.4.5.js"></script>
+  <script src="cordova.js"></script>
+
+  <!--calulation function-->
+  <script>
+  function Calculate(){
+    var result;
+  var num1= document.getElementById('number1');
+  var num2=document.getElementById('number2');
+
+  var sign=document.getElementById('sign').value;
+
+  document.getElementById('operation').innerHTML=(num1.value)+" "+(sign)+" "+(num2.value);
+
+  if(sign=="+"){
+     result=parseInt(num1.value) + parseInt(num2.value);
+      document.getElementById("showResult").innerHTML = (result);
+   }
+
+   else if(sign=="-"){
+   result=parseInt(num1.value) - parseInt(num2.value);
+   document.getElementById("showResult").innerHTML =  (result);
+    }
+
+ else if(sign=="*"){
+ result=parseInt(num1.value) * parseInt(num2.value);
+ document.getElementById("showResult").innerHTML =  (result);
+  }
+
+  else if(sign=="/"){
+  result=parseInt(num1.value) / parseInt(num2.value);
+  document.getElementById("showResult").innerHTML =  (result);
+   }
+
+  else
+  document.getElementById("showResult").innerHTML = "ERROR";
+}
+  </script>
+
+</head>
+
+<body>
+  <!--start of page 1 -->
+    <div data-role="page" id="pageone" data-theme="a">
+
+      <div data-role="header">
+        <h1>Simple Calculator</h1>
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#pageone" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
+            <li><a href="#pagecalculator" data-icon="grid" >Calculator</a></li>
+            <li><a href="#page_help" data-icon="info">Help</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div data-role="main" class="ui-content">
+        <p>This is a jQuery mobile exercise which provides the user with a calculator
+          for basic mathematical calculations </p>
+      </div>
+
+      <div data-role="footer">
+        <h2>Homework</h2>
+      </div>
+
+
+    </div>
+    <!--end of page 1-->
+
+    <!--start of page calculator-->
+    <div data-role="page" id="pagecalculator" data-theme="a">
+<div data-role="header" >
+  <h1>Simple Calculator</h1>
+
+  <div data-role="navbar">
+    <ul>
+      <li><a href="#pageone" data-icon="home">Home</a></li>
+      <li><a href="#pagecalculator" data-icon="grid" class="ui-btn-active ui-state-persist">Calculator</a></li>
+      <li><a href="#page_help" data-icon="info">Help</a></li>
+    </ul>
+  </div>
+</div>
+
+<div data-role="main" class="ui-content">
+  <p>CONTENT</p>
+
+  <input type="number" name="number1" pattern="[0-9]*" id="number1" value="">
+
+<div data-role="controlgroup">
+  <select name="equation" id="sign">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+</div>
+
+  <input type="number" name="number2" pattern="[0-9]*" id="number2" value="">
+
+  <a href="#page_result" data-transistion="fade" data-role="button" onClick="Calculate()">Calculate</a>
+
+</div>
+
+<div data-role="footer">
+<h2>Homework</h2>
+</div>
+
+    </div>
+    <!--end of page calculator-->
+
+    <!--start of page result-->
+    <div data-role="page" id="page_result" data-theme="a">
+
+        <div data-role="header">
+          <h1>RESULT</h1>
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#pageone" data-icon="home">Home</a></li>
+              <li><a href="#pagecalculator" data-icon="grid" >Calculator</a></li>
+              <li><a href="#page_help" data-icon="info">Help</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div data-role="main" class="ui-content">
+          <p>Operation:</p>
+        <span id="operation"> </span>
+        <p>Results</p>
+             <span id="showResult"> </span>
+
+                     <a href="#pagecalculator" class="ui-btn ui-icon-back ui-btn-icon-left ui-corner-all"
+                      data-rel="back" data-transition="flip">
+                       Back</a>
+        </div>
+
+
+
+        <div data-role="footer">
+          <h2>Homework</h2>
+        </div>
+
+
+      </div>
+    <!--end of page result-->
+
+    <!--start of page help-->
+    <div data-role="page" id="page_help" data-theme="a">
+
+      <div data-role="header">
+        <h1>Simple Calculator</h1>
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#pageone" data-icon="home" >Home</a></li>
+            <li><a href="#pagecalculator" data-icon="grid" >Calculator</a></li>
+            <li><a href="#page_help" data-icon="info" class="ui-btn-active ui-state-persist">Help</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div data-role="main" class="ui-content">
+        <p>This is the the help section and provide basic information about how to
+        use the calculator</p>
+
+        <a href="#page_info" class="ui-btn ui-icon-info ui-btn-icon-left ui-corner-all" data-transition="flip">
+          More info</a>
+
+      </div>
+
+      <div data-role="footer">
+        <h2>Homework</h2>
+      </div>
+
+
+    </div>
+    <!--end of page help-->
+
+    <!--start of more info-->
+    <div data-role="page" id="page_info" data-dialog="true" data-theme="a">
+
+      <div data-role="header">
+        <h1>More info</h1>
+      </div>
+
+      <div data-role="main" class="ui-content">
+        <p>you have requested more info about the app</p>
+
+        <a href="#page_help" data-rel="back"
+        class="ui-btn ui-icon-back ui-btn-icon-left ui-corner-all" data-transition="flip">
+          Dismiss</a>
+
+      </div>
+
+    </div>
+    <!--end of more info-->
+</body>
+
+</html>
